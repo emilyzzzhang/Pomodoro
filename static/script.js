@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Music Setup
+    // 🎵 Music Setup
     const musicTracks = [
         "/static/music/lofi1.mp3",
         "/static/music/lofi2.mp3",
@@ -9,20 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
     let musicIndex = 0;
     const audioPlayer = document.getElementById('bgMusic');
     const nowPlayingLabel = document.getElementById('nowPlaying');
-    const changeMusicBtn = document.getElementById('changeMusicBtn');
+    const changeMusicImg = document.getElementById('changeMusicImg');
     audioPlayer.src = musicTracks[musicIndex];
 
-    // Only play music once
     let hasStartedMusic = false;
 
-    // Pomodoro Timer
+    // ⏱️ Pomodoro Timer
     let timer = null;
     let timeLeft = 25 * 60;
     let isRunning = false;
+    let currentState = 'start'; // 'start' | 'pause' | 'resume'
 
     const timerDisplay = document.getElementById('timer');
     const startBtn = document.getElementById('startBtn');
-    const resetBtn = document.getElementById('resetBtn');
+    const startImg = document.getElementById('startImg');
+    const resetImg = document.getElementById('resetImg');
 
     function updateDisplay() {
         const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
@@ -34,12 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isRunning) {
             if (!hasStartedMusic) {
                 audioPlayer.play().then(() => {
-                    if (nowPlayingLabel) {
-                        nowPlayingLabel.textContent = `🎵 Now playing: ${musicTracks[musicIndex].split('/').pop()}`;
-                    }
-                }).catch(err => {
-                    console.log("Music autoplay blocked:", err);
-                });
+                    nowPlayingLabel.textContent = `🎵 Now playing: ${musicTracks[musicIndex].split('/').pop()}`;
+                }).catch(err => console.log("Music autoplay blocked:", err));
                 hasStartedMusic = true;
             }
 
@@ -50,16 +47,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     clearInterval(timer);
                     isRunning = false;
-                    startBtn.textContent = 'Start';
+                    currentState = 'start';
+                    startImg.src = "/static/buttons/start.png";
                     alert("Time's up! 🎉");
                 }
             }, 1000);
+
             isRunning = true;
-            startBtn.textContent = 'Pause';
+            currentState = 'pause';
+            startImg.src = "/static/buttons/pause.png";
         } else {
             clearInterval(timer);
             isRunning = false;
-            startBtn.textContent = 'Resume';
+            currentState = 'resume';
+            startImg.src = "/static/buttons/resume.png";
         }
     }
 
@@ -68,14 +69,75 @@ document.addEventListener('DOMContentLoaded', function () {
         timeLeft = 25 * 60;
         updateDisplay();
         isRunning = false;
-        startBtn.textContent = 'Start';
+        currentState = 'start';
+        startImg.src = "/static/buttons/start.png";
     }
 
     startBtn.addEventListener('click', startTimer);
     resetBtn.addEventListener('click', resetTimer);
     updateDisplay();
 
-    // Background Switching
+    // 🌟 Button Hover/Click Image Switching
+    startBtn.addEventListener('mouseenter', () => {
+        startImg.src = `/static/buttons/${currentState}-hover.png`;
+    });
+
+    startBtn.addEventListener('mouseleave', () => {
+        startImg.src = `/static/buttons/${currentState}.png`;
+    });
+
+    startBtn.addEventListener('mousedown', () => {
+        startImg.src = `/static/buttons/${currentState}-click.png`;
+    });
+
+    startBtn.addEventListener('mouseup', () => {
+        startImg.src = `/static/buttons/${currentState}-hover.png`;
+    });
+
+    // Hover states
+    resetBtn.addEventListener('mouseenter', () => {
+        resetImg.src = "/static/buttons/reset-hover.png";
+    });
+    resetBtn.addEventListener('mouseleave', () => {
+        resetImg.src = "/static/buttons/reset.png";
+    });
+    resetBtn.addEventListener('mousedown', () => {
+        resetImg.src = "/static/buttons/reset-click.png";
+    });
+    resetBtn.addEventListener('mouseup', () => {
+        resetImg.src = "/static/buttons/reset-hover.png";
+    });
+
+
+    // Change Background Button Interactions
+    changeBgBtn.addEventListener('mouseenter', () => {
+        changeBgImg.src = "/static/buttons/change-bg-hover.png";
+    });
+    changeBgBtn.addEventListener('mouseleave', () => {
+        changeBgImg.src = "/static/buttons/change-bg.png";
+    });
+    changeBgBtn.addEventListener('mousedown', () => {
+        changeBgImg.src = "/static/buttons/change-bg-click.png";
+    });
+    changeBgBtn.addEventListener('mouseup', () => {
+        changeBgImg.src = "/static/buttons/change-bg-hover.png";
+    });
+
+    // Change Music Button Interactions
+    changeMusicBtn.addEventListener('mouseenter', () => {
+        changeMusicImg.src = "/static/buttons/change-music-hover.png";
+    });
+    changeMusicBtn.addEventListener('mouseleave', () => {
+        changeMusicImg.src = "/static/buttons/change-music.png";
+    });
+    changeMusicBtn.addEventListener('mousedown', () => {
+        changeMusicImg.src = "/static/buttons/change-music-click.png";
+    });
+    changeMusicBtn.addEventListener('mouseup', () => {
+        changeMusicImg.src = "/static/buttons/change-music-hover.png";
+    });
+
+    // 🖼️ Background Switching
     const backgrounds = [
         "/static/backgrounds/cozy1.gif",
         "/static/backgrounds/cozy2.gif",
@@ -83,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     let bgIndex = 0;
-    const changeBgBtn = document.getElementById('changeBgBtn');
+    const changeBgImg = document.getElementById('changeBgImg');
 
     changeBgBtn.addEventListener('click', function () {
         bgIndex = (bgIndex + 1) % backgrounds.length;
@@ -96,13 +158,11 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundAttachment = 'fixed';
 
-    // Change Music Button
+    // 🎵 Change Music Button
     changeMusicBtn.addEventListener('click', () => {
         musicIndex = (musicIndex + 1) % musicTracks.length;
         audioPlayer.src = musicTracks[musicIndex];
         audioPlayer.play();
-        if (nowPlayingLabel) {
-            nowPlayingLabel.textContent = `🎵 Now playing: ${musicTracks[musicIndex].split('/').pop()}`;
-        }
+        nowPlayingLabel.textContent = `🎵 Now playing: ${musicTracks[musicIndex].split('/').pop()}`;
     });
 });
