@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 🎵 Music Setup
+    // Music Setup
     const musicTracks = [
         "/static/music/lofi1.mp3",
         "/static/music/lofi2.mp3",
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let hasStartedMusic = false;
 
-    // ⏱️ Pomodoro Timer
+    // Pomodoro Timer
     let timer = null;
     let timeLeft = 25 * 60;
     let isRunning = false;
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     resetBtn.addEventListener('click', resetTimer);
     updateDisplay();
 
-    // 🌟 Button Hover/Click Image Switching
+    // Button Hover/Click Image Switching
     startBtn.addEventListener('mouseenter', () => {
         startImg.src = `/static/buttons/${currentState}-hover.png`;
     });
@@ -147,7 +147,9 @@ document.addEventListener('DOMContentLoaded', function () {
         "/static/backgrounds/cozy2.gif",
         "/static/backgrounds/cozy3.gif",
         "/static/backgrounds/cozy4.gif", 
-        "/static/backgrounds/cozy5.gif"
+        "/static/backgrounds/cozy5.gif", 
+        "/static/backgrounds/cozy6.gif", 
+        "/static/backgrounds/cozy7.gif"
     ];
 
     let bgIndex = 0;
