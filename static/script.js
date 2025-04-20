@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const musicTracks = [
         "/static/music/lofi1.mp3",
         "/static/music/lofi2.mp3",
-        "/static/music/lofi3.mp3"
+        "/static/music/lofi3.mp3", 
+        "/static/music/lofi4.mp3", 
+        "/static/music/lofi5.mp3", 
+        "/static/music/lofi6.mp3"
+
     ];
 
     let musicIndex = 0;
