@@ -141,7 +141,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const backgrounds = [
         "/static/backgrounds/cozy1.gif",
         "/static/backgrounds/cozy2.gif",
-        "/static/backgrounds/cozy3.gif"
+        "/static/backgrounds/cozy3.gif",
+        "/static/backgrounds/cozy4.gif", 
+        "/static/backgrounds/cozy5.gif"
     ];
 
     let bgIndex = 0;
