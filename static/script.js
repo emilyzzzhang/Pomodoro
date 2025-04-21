@@ -141,15 +141,15 @@ document.addEventListener('DOMContentLoaded', function () {
         changeMusicImg.src = "/static/buttons/change-music-hover.png";
     });
 
-    // 🖼️ Background Switching
+    // Background Switching
     const backgrounds = [
         "/static/backgrounds/cozy1.gif",
         "/static/backgrounds/cozy2.gif",
-        "/static/backgrounds/cozy3.gif",
-        "/static/backgrounds/cozy4.gif", 
+        "/static/backgrounds/cozy6.gif",
+        "/static/backgrounds/cozy7.gif", 
         "/static/backgrounds/cozy5.gif", 
-        "/static/backgrounds/cozy6.gif", 
-        "/static/backgrounds/cozy7.gif"
+        "/static/backgrounds/cozy4.gif", 
+        "/static/backgrounds/cozy3.gif"
     ];
 
     let bgIndex = 0;
