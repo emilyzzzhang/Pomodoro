@@ -1,7 +1,7 @@
 # Pomodoro Timer
 
-A cute and cozy Pomodoro timer web app with calming background gifs and lofi music.
-Designed to help you focus and vibe :)
+A cute and cozy Pomodoro timer web app with calming background and lofi music.
+Designed to help you focus :)
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3efe67df-d38b-4e3d-9f3b-3d723888c72a" 
@@ -13,10 +13,9 @@ Designed to help you focus and vibe :)
 ## Features
 
 - 25-minute Pomodoro timer
-- Click to change relaxing background gifs
+- Click to change background
 - Lofi music that starts automatically when you click "Start"
-- Option to change tracks with a button
-- Cozy design and font for max cuteness
+- Option to change music tracks
 
 
 ## Try it out
