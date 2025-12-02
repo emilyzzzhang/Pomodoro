@@ -20,5 +20,5 @@ Designed to help you focus :)
 
 ## Try it out
 
-**Click here:**  
+**Click here (It takes a few seconds to load) :**  
 [https://cozy-pomodoro-emilyzzzhang.onrender.com/](https://cozy-pomodoro-emilyzzzhang.onrender.com/)
